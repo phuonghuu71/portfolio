@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import ThemeContextProvider from "@/context/ThemeContext";
 import ThemeSwitcher from "@/components/ui/atoms/ThemeSwitcher";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -31,6 +32,13 @@ export default function RootLayout({
           >
             {children}
             <ThemeSwitcher />
+            <Toaster
+              containerStyle={{
+                top: 70,
+              }}
+              position="top-center"
+              reverseOrder={false}
+            />
           </body>
         </ActiveSectionContextProvider>
       </ThemeContextProvider>
